@@ -7,15 +7,18 @@ import manager
 todolist = Path.home().joinpath('.todolist')
 
 def main():
+    #Print todolist
     manager.print_todolist(todolist)
-    while True:
-        manager.menu()
-        try:
-            option = int(input('Select an option: '))
-        except ValueError:
-            print('Please enter an integer.')
+    exit = True
+
+    #Show interactive menu
+    while exit:
+        option = manager.menu()
+        if not option == -1:
+            exit = manager.switcher(option, todolist)
+        else:
             pass
-        print(option)
+
 
 if __name__ == "__main__":
     if not todolist.exists():
