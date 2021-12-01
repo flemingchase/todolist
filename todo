@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+python /Users/chasefleming/Workspace/PythonProjects/todolist/todolist.py

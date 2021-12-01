@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from pathlib import Path
 import manager
 
@@ -7,18 +5,13 @@ import manager
 todolist = Path.home().joinpath('.todolist')
 
 def main():
-    #Print todolist
-    manager.print_todolist(todolist)
-    exit = True
+    #create menu
+    option = manager.menu()
 
-    #Show interactive menu
-    while exit:
+    #while the option is not exit
+    while option:
+        manager.switcher(option, todolist)
         option = manager.menu()
-        if not option == -1:
-            exit = manager.switcher(option, todolist)
-        else:
-            pass
-
 
 if __name__ == "__main__":
     if not todolist.exists():
