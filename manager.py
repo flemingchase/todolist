@@ -4,6 +4,7 @@ from pathlib import Path
 options = ['1: Add to todo list.',
             '2: Remove an item from todo list.',
             '3: Print your todo list.',
+            '4: Clear list.',
             '0: Exit.']
 
 #Adds item to todolist
@@ -18,6 +19,10 @@ def remove_item(number, pathtolist):
 def print_todolist(pathtolist):
     with pathtolist.open() as todolist:
         print(todolist.readline())
+
+#Clears todolist
+def clear_todolist(pathtolist):
+    pathtolist.unlink()
 
 #Gives options for todolist
 def menu():
@@ -48,6 +53,9 @@ def switcher(option, pathtolist):
 
         case 3:
             print_todolist(pathtolist)
+
+        case 4:
+            clear_todolist(pathtolist)
 
         case 0:
             return False
